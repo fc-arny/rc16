@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Запуск настройки прокта bin/setup
 
 Things you may want to cover:
 
