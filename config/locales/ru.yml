@@ -1,0 +1,14 @@
+ru:
+  application:
+    user:
+      sign_in: Вход
+      sign_out: Выйти
+      please_specify_email: Пожалуйста, укажите ваш адрес электронной почты и установите свой пароль. Спасибо.
+      signed_via: # Родительный падеж
+        facebook: Фейсбука
+        vkontakte: Вконтакте
+        github: Гитхаба
+      providers:
+        facebook: Фейсбук
+        vkontakte: Вконтакте
+        github: Гитхаб

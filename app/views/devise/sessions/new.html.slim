@@ -1,0 +1,5 @@
+h1= t('.sign_in_with_social_networks')
+
+ul
+  - User.omniauth_providers.each do |provider|
+    li: a[href=url_for([resource_name, provider, :omniauth, :authorize])] = t(provider, scope: 'application.user.providers')

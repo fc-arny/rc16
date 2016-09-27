@@ -1,0 +1,12 @@
+ul
+  - if user_signed_in?
+    li
+      = link_to profile_users_path do
+        => gravatar_image_tag(current_user.email, alt: current_user.full_name, gravatar: {size: 14, secure: request.ssl?})
+        span[title=current_user.full_name]= current_user.nickname
+    li
+      = link_to t('application.user.sign_out'), destroy_user_session_path, method: :delete
+  - else
+    li
+      = link_to new_user_session_path do
+        = t('application.user.sign_in')

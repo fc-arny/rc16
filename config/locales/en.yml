@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application:
+    user:
+      sign_in: Sign in
+      sign_out: Sign out
+      please_specify_email: Please enter your e-mail and password.
+      signed_via: # Родительный падеж
+        facebook: Facebook
+        vkontakte: VK
+        github: GitHub
+      providers:
+        facebook: Facebook
+        vkontakte: VK
+        github: GitHub

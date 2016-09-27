@@ -1,0 +1,27 @@
+h1
+  => @user.full_name
+  small @#{@user.nickname}
+
+ul
+  - %i[website_url hireable].each do |attr|
+    li
+      strong = "#{User.human_attribute_name(attr)}: "
+      = @user.public_send(attr)
+  li
+    strong = "#{User.human_attribute_name(:gender)}: "
+    = t(@user.gender, scope: 'activerecord.attribute_values.user.gender')
+  - if @user.date_of_birth.present?
+    li
+      strong = "#{User.human_attribute_name(:date_of_birth)}: "
+      = l(@user.date_of_birth)
+
+h2 = t('.social_networks')
+ul
+  - User.omniauth_providers.each do |provider|
+    li
+      strong = "#{t(provider, scope: 'application.user.providers')}: "
+      - if @user.attributes["#{provider}_uid"].present?
+        = link_to @user.attributes["#{provider}_url"] do
+          abbr[title=@user.attributes["#{provider}_uid"]]= t('.connected')
+      - else
+        = link_to t('.connect'), url_for([:user, provider, :omniauth, :authorize])

@@ -11,6 +11,11 @@ gem 'redis-rails', '~> 5.0.1'
 
 # Auth
 gem 'devise', '~> 4.2.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-github'
+
 gem 'simple_token_authentication'
 gem 'activerecord-session_store', '~> 1.0.0'
 
@@ -18,9 +23,10 @@ gem 'pundit'
 
 # Utils
 gem 'config'
-
+gem 'russian'
 gem 'kaminari'
 gem 'paperclip'
+gem 'gravatar_image_tag'
 
 gem 'sidekiq'
 gem 'sidekiq-status'
@@ -37,6 +43,7 @@ gem 'colorize'
 
 # Client code
 gem 'slim'
+gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'js-routes'
@@ -98,5 +105,3 @@ group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
 end
-
-
