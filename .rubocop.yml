@@ -1,0 +1,66 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'bin/**/*'
+    - 'builds/**/*'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'db/seeds/**/*'
+    - 'db/migrate/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.3
+
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+  SingleLineConditionsOnly: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GlobalVars:
+  AllowedVariables: [$logger, $redis, $svetets]
+
+Style/PredicateName:
+  Exclude:
+    - 'app/serializers/**/*'
+
+#################### Metrics ################################
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Max: 220                          # TODO: Потом уменьшить до 100 поэтапно
+
+Metrics/ClassLength:
+  Max: 150                          # TODO: Потом уменьшить до 100 поэтапно
+
+Metrics/LineLength:
+  Max: 170                          # TODO: Потом уменьшить до 120 поэтапно
+
+Metrics/MethodLength:
+  Max: 90                           # TODO: уменьшить до 20-25, можно поэтапно
+
+Metrics/PerceivedComplexity:
+  Max: 25                           # TODO: уменьшить до 7, можно поэтапно
+
+Metrics/CyclomaticComplexity:
+  Max: 25 # TODO: уменьшить до 6
+
+#################### Lint ################################

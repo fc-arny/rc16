@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927161623) do
+ActiveRecord::Schema.define(version: 20161004170701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "quest_items", force: :cascade do |t|
+    t.integer  "state",    default: 0,               comment: "Доступность квеста для участника"
+    t.uuid     "user_id",               null: false, comment: "Пользователь ответивший на задание"
+    t.uuid     "quest_id",              null: false, comment: "Пользователь ответивший на задание"
+    t.json     "data",     default: {},              comment: "Ответ пользователя"
+    t.datetime "start_at",              null: false, comment: "Время когда квест, становится активным"
+    t.datetime "end_at",                null: false, comment: "Время когда квест, становится неактивным"
+  end
+
+  create_table "quests", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string  "title",                           null: false, comment: "Название квеста"
+    t.text    "description",                     null: false, comment: "Описание задания"
+    t.text    "hint",                                         comment: "Подсказка, если пользователь дал неверный ответ"
+    t.integer "points",      default: 1,         null: false
+    t.string  "code",                            null: false, comment: "Тип квеста"
+    t.integer "state",       default: 0,         null: false, comment: "Статус квеста, показывать/не показывать"
+    t.json    "answer",                          null: false, comment: "Правильный ответ"
+    t.string  "checker",     default: "compare", null: false, comment: "Метод отвечающий за проверку ответа"
+  end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "nickname",                                         comment: "Прозвище, логин или @упоминание"

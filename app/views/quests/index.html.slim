@@ -1,16 +1,19 @@
 .container
   .quests
-    - @quests.each do |quest|
-      a.quest-item(href=quest_path(quest[:id]))
-        = image_tag quest[:image], class: 'quest-item__image'
+    - @quest_items.each do |item|
+      a.quest-item(href=quest_path(item.quest.id))
+        = image_tag 'quest-photo.png', class: 'quest-item__image'
         .quest-item__info
           .quest-item__heading
-            .text.text--middle= quest[:title]
+            .text.text--middle= item.quest.title
           .quest-item__description
-            .text.text--small= quest[:description]
+            .text.text--small= item.quest.description
           .quest-item__status
-            .quest-status(class="quest-status--#{quest[:completed] ? 'completed' : 'points'}")
-              - if quest[:completed]
+            .quest-status(class="quest-status--#{item.completed? ? 'completed' : 'points'}")
+              - if item.completed?
                 .quest-status__icon.icons-common_success
+              - elsif item.unresolved?
+                .quest-status__icon.icons-common_failed
               - else
-                = "+#{quest[:points]}"
+                = "+#{item.quest.points}"
+ø

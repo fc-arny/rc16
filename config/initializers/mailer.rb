@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 # Required for links generation in emails
 Rails.application.config.action_mailer.default_url_options = {
-  host: ENV['DOMAIN'],
+  host: ENV['DOMAIN']
 }.compact
 
 if Rails.env.development?

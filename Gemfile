@@ -1,12 +1,12 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
-
 
 gem 'rails', '~> 5.0.0'
 gem 'active_model_serializers', '~> 0.10.0'
 
 # Servers
 gem 'puma'
-gem 'pg', '~> 0.18.3'
+gem 'pg', '~> 0.19'
 gem 'redis-rails', '~> 5.0.1'
 
 # Auth
@@ -33,22 +33,20 @@ gem 'sidekiq-status'
 gem 'sidekiq-failures'
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', branch: :master
 
-gem 'seedbank', branch: :master
-gem 'faker'
+gem 'seedbank'
 
 gem 'awesome_print', require: false
 gem 'hirb', require: false
 gem 'colorize'
-
 
 # Client code
 gem 'slim'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'js-routes'
-gem 'react_on_rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
+
 gem 'compass-core',  git: 'https://github.com/Davidiusdadi/compass',  branch: 'core'
 gem 'compass-rails'
 
@@ -90,8 +88,6 @@ group :development, :test do
 
   # Testing
   gem 'rspec-rails'
-  # gem 'rspec-retry'
-  # gem 'rspec-rails-caching'
 
   gem 'database_cleaner'
   gem 'factory_girl_rails'
