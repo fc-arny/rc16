@@ -43,7 +43,6 @@ gem 'colorize'
 
 # Client code
 gem 'slim'
-gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'js-routes'

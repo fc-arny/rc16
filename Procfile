@@ -1,0 +1,1 @@
+client: sh -c 'npm run dev'
