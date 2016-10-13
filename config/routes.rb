@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     get :profile, on: :collection
   end
 
-  root to: 'users#profile'
+  resources :quests
+
+  root to: 'index#main'
 end

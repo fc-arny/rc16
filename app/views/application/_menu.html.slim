@@ -1,0 +1,37 @@
+.js-mask.mask
+
+.topline
+  .topline__logo
+    a(href=root_path)
+      .icons-logo
+  .topline__trigger
+    button.js-topline-trigger.topline-trigger.icons-menu
+
+.js-menu-bar.menu-bar
+  .menu-bar-wrapper
+    button.js-menu-closer.menu-bar__closer.icons-close_menu
+    .menu-bar__user
+      .menu-user
+        .menu-user__photo-wrap
+          = image_tag 'user-photo.png', class: 'menu-user__photo'
+        .menu-user__name.text.text--middle.text--strong.text--center Иванов Иван Иванович
+      .menu-stats
+        .menu-stats__flag.icons-stats_flag
+        .menu-stats__points
+          .stats-point
+            .stats-point__count 105
+            .stats-point__text баллов
+          .stats-point
+            .stats-point__count 1-е
+            .stats-point__text место
+    .menu-bar__links
+      ul.menu-links
+        li.menu-links__item
+          a.link.link--middle(href=quests_path) Список квестов
+        li.menu-links__item
+          a.link.link--middle(href='') Рейтинг
+        li.menu-links__item
+          a.link.link--middle(href='') Призы
+        li.menu-links__item
+          a.link.link--middle(href='') Выйти
+    a.menu-bar__logo.icons-atc_logo(href=Settings.atc_link)

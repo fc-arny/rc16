@@ -1,0 +1,77 @@
+/**
+ * Buttons
+ */
+.btn
+  padding: 12px 30px
+  font-size: 14px
+  font-weight: bold
+  color: $white
+  &--default
+    background-color: $orange_btn
+  &--primary
+    background-color: blue
+
+/**
+ * Social Button
+ */
+.social-button
+  position: relative
+  display: block
+  height: 53px
+  line-height: 53px
+  text-align: center
+  text-decoration: none
+  color: $white
+  &--space
+    margin-bottom: 25px
+    &:last-child
+      margin-bottom: 0
+  &__logo,
+  &__count
+    position: absolute
+    top: 0
+    width: 22%
+    height: 100%
+  &__logo
+    left: 0
+  &__count
+    right: 0
+  &__count
+    font-size: 18px
+    font-weight: bold
+    &:before
+      content: ''
+      position: absolute
+      left: -7px
+      top: 50%
+      margin-top: -8px
+  &__content
+    padding: 0 22%
+    font-size: 14px
+  &--github
+    background-color: $blue_github_bg
+    .social-button__logo
+      background-color: $blue_github_logo
+    .social-button__count
+      background-color: $blue_github_count_bg
+      &:before
+        +arrow-left(8px, 16px, $blue_github_count_bg)
+  &--facebook
+    background-color: $blue_facebook_bg
+    .social-button__logo
+      background-color: $blue_facebook_logo
+    .social-button__count
+      background-color: $blue_facebook_count_bg
+      &:before
+        +arrow-left(8px, 16px, $blue_facebook_count_bg)
+  &--vkontakte
+    background-color: $blue_vkontakte_bg
+    .social-button__logo
+      background-color: $blue_vkontakte_logo
+    .social-button__count
+      background-color: $blue_vkontakte_count_bg
+      &:before
+        +arrow-left(8px, 16px, $blue_vkontakte_count_bg)
+
+.social-icon
+  +center

@@ -1,0 +1,16 @@
+.js-modal.modal.modal--hidden
+  button.js-modal-close.modal__close
+  .modal-middle
+    .modal-inner.modal-inner--login
+      .login
+        .login__content
+          .title.title--large.title--center.title--space Логин
+
+          - User.omniauth_providers.each do |provider|
+            a(class="social-button social-button--space social-button--#{provider}" href=url_for([:user, provider, :omniauth, :authorize]))
+              .social-button__logo
+                .social-icon(class="icons-social_#{provider}")
+              .social-button__content Начать квест
+              .social-button__count +2
+
+        .login__footer При выполнении квестов будь внимателен! Помимо основных квестов, ты можешь встретить секретные задания.

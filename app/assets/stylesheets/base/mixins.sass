@@ -1,0 +1,96 @@
+=sprite($name)
+  @extend .icons-#{$name}
+
+=cf
+  &:after
+    content: " "
+    display: block
+    clear: both
+
+=center
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+=hide-text($size, $blur, $color)
+  box-shadow: inset -#{$size} 0 $blur $color
+
+=cut-text
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=user-select($property)
+  -webkit-user-select: $property
+  -moz-user-select: $property
+  -ms-user-select: $property
+  user-select: $property
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=animation($properties...)
+  -webkit-animation: $properties
+  -moz-animation:    $properties
+  -o-animation:      $properties
+  animation:         $properties
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  border-radius:         $radius
+
+=transition($properties)
+  -webkit-transition: $properties
+  -moz-transition:    $properties
+  -o-transition:      $properties
+  transition:         $properties
+
+=transform($properties)
+  -webkit-transform: $properties
+  -moz-transform:    $properties
+  -ms-transform:     $properties
+  -o-transform:      $properties
+  transform:         $properties
+
+=vertical-gradient($from, $to)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $from), color-stop(100%, $to))
+  background: -webkit-linear-gradient(top, $from, $to)
+  background:    -moz-linear-gradient(top, $from, $to)
+  background:     -ms-linear-gradient(top, $from, $to)
+  background:      -o-linear-gradient(top, $from, $to)
+  background:         linear-gradient(to bottom, $from, $to)
+
+/** Iphone 5 **/
+=iphone_5($orientation)
+  @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation: $orientation)
+    @content
+
+=iphone_6($orientation)
+  @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation: $orientation)
+    @content
+
+=iphone_6_plus($orientation)
+  @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation: $orientation)
+    @content
+
+=ipad($orientation)
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation: $orientation)
+    @content
+
+=arrow-left($width, $height, $color)
+  border-right-width: $width
+  border-right-style: solid
+  border-right-color: $color
+  border-top: $height / 2 solid transparent
+  border-bottom: $height / 2 solid transparent

@@ -1,0 +1,16 @@
+.container
+  .quests
+    - @quests.each do |quest|
+      a.quest-item(href=quest_path(quest[:id]))
+        = image_tag quest[:image], class: 'quest-item__image'
+        .quest-item__info
+          .quest-item__heading
+            .text.text--middle= quest[:title]
+          .quest-item__description
+            .text.text--small= quest[:description]
+          .quest-item__status
+            .quest-status(class="quest-status--#{quest[:completed] ? 'completed' : 'points'}")
+              - if quest[:completed]
+                .quest-status__icon.icons-common_success
+              - else
+                = "+#{quest[:points]}"

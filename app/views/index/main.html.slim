@@ -1,0 +1,44 @@
+- content_for :base do
+  .container
+    .main.main--waves
+      .main__logo
+        a.logo.icons-logo(href=root_path)
+      .main-title
+        .main-title__text.title.title--large.title--center Представляют
+        .main-title__underline.icons-title_underline
+        .main-title__description.text.text--middle.text--center
+          | Прими участие в нашем квесте
+          br
+          | и выйграй крутой гомоскутер.
+          br
+          | Бла бла бла бла.
+      .main-present
+      .main-begin
+        button.js-scroll-rules.begin-button
+          .begin-button__text.text.text--small Узнать больше и начать квест
+          .begin-button__icon.icons-arrow_bottom
+
+    .js-quest-rules.main
+      .main__logo
+        a.logo.icons-logo(href=root_path)
+      .main-title
+        .text.text--middle.text--center Внимательно прочтите каждое утверждение. Оцените в баллах его значимость, распределив 11 баллов между четырьмя предложенными в каждом пункте вариантами завершения. 
+      .quest-position.quest-position--space
+        .column.column--6
+          .text.text--small Займи первое местои выиграй крутой гироскутер. Описание, описание.
+        .column.column--6
+          = image_tag 'present_first.png', class: 'quest-position__image'
+      .quest-position.quest-position--space
+        .column.column--6
+          = image_tag 'present_first.png', class: 'quest-position__image'
+        .column.column--6
+          .text.text--small Займи первое местои выиграй крутой гироскутер. Описание, описание.
+      .quest-position.quest-position--largespace
+        .column.column--6
+          .text.text--small Займи первое местои выиграй крутой гироскутер. Описание, описание.
+        .column.column--6
+          = image_tag 'present_first.png', class: 'quest-position__image'
+      .quest-position.quest-position--center
+        button.js-begin-quest.btn.btn--default Начать квест
+
+    = render 'login'

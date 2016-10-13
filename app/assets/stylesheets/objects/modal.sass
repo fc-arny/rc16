@@ -1,0 +1,33 @@
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  overflow: auto
+  +vertical-gradient(rgba(87, 166, 180, .9), rgba(207, 224, 155, .9))
+  &--hidden
+    display: none
+  &__close
+    position: absolute
+    top: 10px
+    right: 10px
+    @extend .icons-common_close
+  &:before
+    content: ''
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+
+.modal-middle
+  display: inline-block
+  vertical-align: middle
+  width: 100%
+
+.modal-inner
+  width: 80%
+  margin: 30px auto
+  background-color: $white
+  box-shadow: 0px 0px 7.02px 1.98px rgba(81, 82, 82, 0.078)
+  &--login
+    max-width: 400px

@@ -49,7 +49,8 @@ gem 'js-routes'
 gem 'react_on_rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
-
+gem 'compass-core',  git: 'https://github.com/Davidiusdadi/compass',  branch: 'core'
+gem 'compass-rails'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

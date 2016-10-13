@@ -1,13 +1,6 @@
-doctype html
-html
-  head
-    title AT Consulting & RailsClub'2016
-    = csrf_meta_tags
+- content_for :base do
+  = render 'menu'
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
-  body
-    = render 'login_items'
-    p.notice = notice
-    p.alert  = alert
-    = yield
+  = yield
+
+= render file: 'layouts/base'

@@ -1,0 +1,90 @@
+.body-no-scroll
+  overflow: hidden
+
+.logo
+  display: block
+  margin: 0 auto
+
+.main
+  position: relative
+  min-height: 100vh
+  padding: 25px
+  &--waves
+    background: asset_url('main_bottom.png') no-repeat bottom center
+    background-size: contain
+
+.main-title
+  margin: 0 auto
+  padding: 17px 0
+  background: asset_url('main_title_bg.png') no-repeat top center
+  &__text
+    margin: 0 auto 10px
+  &__underline
+    margin: 0 auto 13px
+
+.main-present
+  background: asset_url('main_present.png') no-repeat center center
+  background-size: contain
+
+.main-begin
+  text-align: center
+
+.begin-button
+  display: block
+  margin: 0 auto
+  text-decoration: none
+  &__text
+    color: $black
+  &__icon
+    display: inline-block
+
+.quest-position
+  +cf
+  &--center
+    text-align: center
+  &--space
+    margin-bottom: 15px
+  &--largespace
+    margin-bottom: 50px
+  &__image
+    width: 100%
+
+@media screen and (max-height: 568px)
+  .main
+    padding-top: 20px
+  .main-present
+    height: 171px
+    margin-bottom: 10px
+  .main--waves
+    padding-bottom: 100px
+
+@media screen and (min-height: 569px) and (max-height: 667px)
+  .main-present
+    height: 250px
+    margin-bottom: 20px
+  .main--waves
+    padding-bottom: 100px
+
+@media screen and (min-height: 668px) and (max-height: 767px)
+  .main-present
+    height: 270px
+    margin-bottom: 30px
+  .main--waves
+    padding-bottom: 129px
+
+@media screen and (min-height: 768px) and (max-height: 1024px)
+  .main-present
+    height: 350px
+    margin-bottom: 30px
+  .main--waves
+    padding-bottom: 217px
+
+@media screen and (min-height: 1024px)
+  .main-present
+    height: 550px
+
+@media screen and (min-height: 1200px)
+  .main-title
+    padding: 70px 0
+  .main-present
+    height: 650px
