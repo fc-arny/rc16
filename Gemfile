@@ -55,12 +55,12 @@ gem 'compass-rails'
 
 group :development, :test do
   # Deployment
-  gem 'capistrano', '~> 3.5.0'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rvm'
-  gem 'capistrano-sidekiq'
-  gem 'capistrano3-puma'
+  gem 'capistrano',         '~> 3.6', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler',           require: false
+  gem 'capistrano-rvm',               require: false
+  gem 'capistrano-sidekiq',           require: false
+  gem 'capistrano3-puma',             require: false
 
   # Debug tool for mail and errors
   gem 'better_errors'
