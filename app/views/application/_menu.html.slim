@@ -13,8 +13,8 @@
     .menu-bar__user
       .menu-user
         .menu-user__photo-wrap
-          = image_tag 'user-photo.png', class: 'menu-user__photo'
-        .menu-user__name.text.text--middle.text--strong.text--center Иванов Иван Иванович
+          = gravatar_image_tag(current_user.email, class: 'user-photo', alt: current_user.full_name)
+        .menu-user__name.text.text--middle.text--strong.text--center= current_user.full_name
       .menu-stats
         .menu-stats__flag.icons-stats_flag
         .menu-stats__points
@@ -29,9 +29,9 @@
         li.menu-links__item
           a.link.link--middle(href=quests_path) Список квестов
         li.menu-links__item
-          a.link.link--middle(href='') Рейтинг
+          a.link.link--middle(href=top_users_path) Рейтинг
         li.menu-links__item
-          a.link.link--middle(href='') Призы
+          a.link.link--middle(href=prizes_path) Призы
         li.menu-links__item
           a.link.link--middle(href='') Выйти
     a.menu-bar__logo.icons-atc_logo(href=Settings.atc_link)

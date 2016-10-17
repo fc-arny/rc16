@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: %i() do
     get :profile, on: :collection
+    get :top, on: :collection
   end
 
   resources :quests
+
+  get 'prizes' => 'prizes#index'
+  get 'top' => 'top#index'
 
   root to: 'index#main'
 end

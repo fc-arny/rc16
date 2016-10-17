@@ -1,5 +1,13 @@
-.quests
-  padding: 10px
+.header-stats
+  margin-bottom: 10px
+  +cf
+  &__progress,
+  &__toggler
+    display: inline-block
+    vertical-align: middle
+    width: 49%
+  &__progress
+    margin-right: 2%
 
 .quest-item
   position: relative
@@ -23,6 +31,8 @@
   &__description
     .text
       +cut-text
+  &__fader
+    +dark-fader(.8)
   .quest-status
     position: absolute
     right: 0
@@ -47,3 +57,15 @@
       background-color: #9cc758
     &__icon
       +center
+
+.timesup
+  position: absolute
+  top: 50%
+  width: 100%
+  margin-top: -35px
+  text-align: center
+  &__icon
+    display: inline-block
+  &__text
+    color: $white_text
+    font-weight: bold

@@ -1,0 +1,32 @@
+.table
+  width: 100%
+
+.table-head-line
+  height: 40px
+
+.table-title
+  font-size: 12px
+  color: $title_color
+  &--number
+    width: 17%
+  &--name
+    width: 66%
+  &--points
+    width: 17%
+
+.table-line
+  height: 82px
+  &:not(.table-line--current):nth-child(odd)
+    background-color: $white_darker
+  &--current
+    background-color: $green_current
+
+.table-user
+  &__photo,
+  &__name
+    display: inline-block
+    vertical-align: middle
+  &__photo
+    margin-right: 19px
+  &__name
+    max-width: calc(100% - 81px)

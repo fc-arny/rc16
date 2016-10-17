@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161004170701) do
     t.integer "points",      default: 1,         null: false
     t.string  "code",                            null: false, comment: "Тип квеста"
     t.integer "state",       default: 0,         null: false, comment: "Статус квеста, показывать/не показывать"
-    t.json    "answer",                          null: false, comment: "Правильный ответ"
+    t.text    "answer",                          null: false, comment: "Правильный ответ, можно json запихать туда"
     t.string  "checker",     default: "compare", null: false, comment: "Метод отвечающий за проверку ответа"
   end
 

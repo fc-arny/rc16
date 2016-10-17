@@ -21,13 +21,8 @@ module.exports = {
   resolve : {
     extensions: ['', '.js'],
     alias : {
-      stores     : path.resolve(app_path + '/stores'),
-      dispatcher : path.resolve(app_path + '/dispatcher'),
-      actions    : path.resolve(app_path + '/actions'),
       components : path.resolve(app_path + '/components'),
-      common     : path.resolve(app_path + '/components/common'),
-      constants  : path.resolve(app_path + '/constants'),
-      api        : path.resolve(app_path + '/api'),
+      objects    : path.resolve(app_path + '/objects'),
       utils      : path.resolve(app_path + '/utils')
     }
   },

@@ -6,13 +6,16 @@ const closeClasses = ['js-modal', 'modal-middle', 'js-modal-close'];
 
 class Modal {
   constructor(config) {
-    Object.assign(this, config);
+    this.modal      = config.modal;
+    this.opener     = config.opener;
+
     this.closeOnEsc = this.closeOnEsc.bind(this);
 
     this.addListener();
   }
 
   addListener() {
+    /* Скрыть модальное окно */
     $(document).on('click', this.modal, (e) => {
       const target = $(e.target);
       const shouldHide = closeClasses.some(className =>
@@ -22,6 +25,11 @@ class Modal {
       if (shouldHide) {
         this.hide();
       }
+    });
+
+    /* Показать модальное окно */
+    $(document).on('click', this.opener, (e) => {
+      this.show();
     });
   }
 
@@ -41,14 +49,14 @@ class Modal {
 
   show() {
     $(this.modal).show();
-    $('body').addClass('body-no-scroll');
+    $('html, body').addClass('body-no-scroll');
 
     this.addEscListener();
   }
 
   hide() {
     $(this.modal).hide();
-    $('body').removeClass('body-no-scroll');
+    $('html, body').removeClass('body-no-scroll');
 
     this.removeEscListener();
   }

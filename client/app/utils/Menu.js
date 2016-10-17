@@ -4,17 +4,16 @@ import $ from 'jquery';
 
 class Menu {
   constructor(config) {
-    Object.assign(this, config);
-
     this.opened       = false;
+
+    this.menu         = config.menu;
+    this.toggler      = config.toggler;
+    this.closer       = config.closer;
+    this.mask         = config.mask;
     this.closeOnEsc   = this.closeOnEsc.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
     this.addListeners();
-  }
-
-  setOpened(opened) {
-    this.opened = opened;
   }
 
   addListeners() {
@@ -39,27 +38,29 @@ class Menu {
   }
 
   handleChange() {
-    this.opened = !this.opened;
-
     if (this.opened) {
-      this.show();
-    } else {
       this.hide();
+    } else {
+      this.show();
     }
   }
 
   show() {
+    this.opened = true;
+
     $(this.menu).addClass('menu-bar--opened')
     $(this.mask).addClass('mask--active');
-    $('body').addClass('body-no-scroll');
+    $('html, body').addClass('body-no-scroll');
 
     this.addEscListener();
   }
 
   hide() {
+    this.opened = false;
+
     $(this.menu).removeClass('menu-bar--opened')
     $(this.mask).removeClass('mask--active');
-    $('body').removeClass('body-no-scroll');
+    $('html, body').removeClass('body-no-scroll');
 
     this.removeEscListener();
   }

@@ -75,3 +75,55 @@
 
 .social-icon
   +center
+
+.toggler
+  font-size: 0
+  &--right
+    text-align: right
+  &__button
+    position: relative
+    width: 40px
+    height: 20px
+    padding: 2px
+    +border-radius(3px)
+    background-color: $orange_btn
+    +transition(background-color .1s ease-in-out)
+    &:first-child
+      margin-right: 10px
+  &__input
+    display: none
+    &:checked
+      & ~ .toggler__label
+        .toggler__button
+          background-color: $green_progress
+        .toggler__toggle
+          left: 20px
+        .toggler__icon
+          left: 6px
+          top: 7px
+          +sprite_icon(toggler_active)
+  &__label
+    display: inline-block
+    cursor: pointer
+  &__toggle
+    position: absolute
+    left: 2px
+    width: 18px
+    height: 16px
+    background-color: $white
+    +border-radius(3px)
+    +transition(left .1s ease-in-out)
+  &__icon
+    position: absolute
+    top: 6px
+    left: 25px
+    margin: auto
+    +sprite_icon(toggler_inactive)
+  &__button,
+  &__text
+    display: inline-block
+    vertical-align: middle
+  &__text
+    width: calc(100% - 50px)
+    &:first-child
+      margin-right: 10px

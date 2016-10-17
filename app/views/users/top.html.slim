@@ -1,0 +1,21 @@
+.container.container--space
+  .title.title--large.title--center Рейтинг
+
+  table.table
+    thead
+      tr.table-head-line
+        th.table-title.table-title--number №
+        th.table-title.table-title--name Имя
+        th.table-title.table-title--points Баллы
+    tbody
+      - @users.each_with_index do |user, index|
+        tr.table-line(class="#{user[:current] ? 'table-line--current' : ''}")
+          td.table-cell
+            .text.text--small.text--center.text--strong= index + 1
+          td.table-cell
+            .table-user
+              .table-user__photo
+                = image_tag 'user-photo.png', class: 'user-photo user-photo--small'
+              .table-user__name.text.text--small.text--strong= user[:name]
+          td.table-cell
+            .text.text--small.text--center.text--strong= user[:points]

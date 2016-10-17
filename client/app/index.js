@@ -1,42 +1,18 @@
 'use strict';
 
-import $     from 'jquery';
-import 'babel-polyfill';
+import $        from 'jquery';
+import Togglers from 'objects/Togglers';
+import Modals   from 'objects/Modals';
+import Menu     from 'objects/Menu';
+import Scroll   from 'objects/Scroll';
 
-import Modal from 'utils/Modal';
-import Menu  from 'utils/Menu';
-
-$(document).ready(function() {
-  /**
-   * Скролл к правилам квеста
-   */
-  $(document).on('click', '.js-scroll-rules', () => {
-    $('html, body').animate({
-      scrollTop: $(".js-quest-rules").offset().top
-    }, 500);
-  });
-
-  /**
-   * Модальное окно регистрации через соц. сети
-   */
-  const login = new Modal({
-    modal: '.js-modal'
-  });
-  $(document).on('click', '.js-begin-quest', () => {
-    login.show();
-  });
-
-  /**
-   * Инициализация меню
-   */
-  const menu = new Menu({
-    menu: '.js-menu-bar',
-    toggler: '.js-topline-trigger',
-    closer: '.js-menu-closer',
-    mask: '.js-mask'
-  });
-
-  $(document).on('turbolinks:load', (e) => {
-    menu.setOpened(false);
-  });
+$(document).on('turbolinks:load', (e) => {
+  Togglers.questsActive.setActivity();
 });
+
+/**
+ * Если пользователь перешел на другую страницу при открытом меню, закрываем меню
+ */
+$(document).on('turbolinks:before-visit', (e) => {
+  Menu.hide();
+})

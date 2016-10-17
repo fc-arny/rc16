@@ -1,0 +1,18 @@
+.progress
+  height: 10px
+  padding: 1px
+  border: 1px solid $gray_border
+  +border-radius(3px)
+  &__line
+    position: relative
+    height: 6px
+    background-color: $green_progress
+    +border-radius(2px 0 0 2px)
+    &:after
+      content: ''
+      position: absolute
+      right: 0
+      bottom: 0
+      height: 13px
+      width: 1px
+      background-color: $orange_btn
