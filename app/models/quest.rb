@@ -5,14 +5,19 @@ class Quest < ApplicationRecord
   enum state: [:inactive, :active, :hidden]
 
   def check(user_answer)
-    meth = "__check_#{checker}"
-    send(meth, user_answer)
+    send(checker_name, user_answer)
+  end
+
+  def checker_name
+    meth = :compare
+
+    "__check_#{meth}"
   end
 
   private
 
   ##
-  # Сравнение
+  # Сравнение примитивное
   def __check_compare(user_answer)
     user_answer.to_s.strip.downcase == answer.to_s
   end

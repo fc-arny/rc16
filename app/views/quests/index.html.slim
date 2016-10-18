@@ -2,12 +2,12 @@
   .header-stats
     .header-stats__progress
       .progress
-        .progress__line(style='width: 75%;')
+        .progress__line(style="width: #{current_user.progress}%;")
     .header-stats__toggler
       .js-toggler-show-active.toggler.toggler--right
-        input.toggler__input(type='checkbox' id='show_active' checked=("checked" if params[:active] == 'true'))
+        input.toggler__input(type='checkbox' id='show_active' checked=('checked' unless params[:all]))
         label.toggler__label(for='show_active')
-          .toggler__text.text.text--small Показывать активные
+          .toggler__text.text.text--small= 'Только активные'
           .toggler__button
             .toggler__icon
             .toggler__toggle
@@ -18,13 +18,13 @@
     - else
       - @quest_items.each do |item|
         -# рендерим див или ссылку
-        - if item.unresolved?
+        - if item.available?
+          a.quest-item(href=quest_path(item.id))
+            = render 'quest_content', item: item
+        - else
           .quest-item
             = render 'quest_content', item: item
             .quest-item__fader
               .timesup
                 .timesup__icon.icons-common_clock
-                .timesup__text Время закончилось
-        - else
-          a.quest-item(href=quest_path(item.id))
-            = render 'quest_content', item: item
+                .timesup__text= item.end_at > Time.now ? 'Пока рано' : 'Время закончилось'

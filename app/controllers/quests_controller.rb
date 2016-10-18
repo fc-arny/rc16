@@ -6,7 +6,8 @@ class QuestsController < ApplicationController
   ##
   # Список доступных пользователю квестов
   def index
-    @quest_items = policy_scope(QuestItem).includes(:quest)
+    @quest_items = policy_scope(QuestItem).order(:start_at).includes(:quest)
+    @quest_items = @quest_items.available unless params[:all]
   end
 
   ##

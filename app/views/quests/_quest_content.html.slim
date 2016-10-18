@@ -2,8 +2,8 @@
 .quest-item__info
   .quest-item__heading
     .text.text--middle= item.quest.title
-  .quest-item__description
-    .text.text--small= item.quest.description
+  /.quest-item__description
+  /  .text.text--small= item.quest.description
   .quest-item__status
     .quest-status(class="quest-status--#{item.completed? ? 'completed' : 'points'}")
       - if item.completed?

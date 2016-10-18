@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
   after_commit :generate_quest_items, on: [:create]
 
+  has_many :quest_items
+
+  def progress
+    (quest_items.where('end_at < ?', Time.now).count.to_f / quest_items.count) * 100
+  end
+
   private
 
   def generate_quest_items

@@ -2,9 +2,7 @@
 
 import $        from 'jquery';
 import Togglers from 'objects/Togglers';
-import Modals   from 'objects/Modals';
 import Menu     from 'objects/Menu';
-import Scroll   from 'objects/Scroll';
 
 $(document).on('turbolinks:load', (e) => {
   Togglers.questsActive.setActivity();
@@ -15,4 +13,4 @@ $(document).on('turbolinks:load', (e) => {
  */
 $(document).on('turbolinks:before-visit', (e) => {
   Menu.hide();
-})
+});
