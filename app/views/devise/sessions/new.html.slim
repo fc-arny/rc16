@@ -8,6 +8,6 @@
           .social-button__logo
             .social-icon(class="icons-social_#{provider}")
           .social-button__content Начать квест
-          .social-button__count +2
+          .social-button__count = Settings.sign_in_reward[provider]
 
     .login__footer При выполнении квестов будь внимателен! Помимо основных квестов, ты можешь встретить секретные задания.

@@ -2,3 +2,8 @@ quest:
   start_at: '2016-10-22 11:45+03:00'
   interval: 15
 atc_link: http://www.at-consulting.ru/
+
+sign_in_reward:
+  github:    5
+  facebook:  3
+  vkontakte: 3
