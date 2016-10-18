@@ -13,15 +13,18 @@
             .toggler__toggle
 
   .quests
-    - @quest_items.each do |item|
-      -# рендерим див или ссылку
-      - if item.unresolved?
-        .quest-item
-          = render 'quest_content', item: item
-          .quest-item__fader
-            .timesup
-              .timesup__icon.icons-common_clock
-              .timesup__text Время закончилось
-      - else
-        a.quest-item(href=quest_path(item.id))
-          = render 'quest_content', item: item
+    - if @quest_items.count == 0
+      .text.text--middle.text--center.text--strong Нет квестов :-(
+    - else
+      - @quest_items.each do |item|
+        -# рендерим див или ссылку
+        - if item.unresolved?
+          .quest-item
+            = render 'quest_content', item: item
+            .quest-item__fader
+              .timesup
+                .timesup__icon.icons-common_clock
+                .timesup__text Время закончилось
+        - else
+          a.quest-item(href=quest_path(item.id))
+            = render 'quest_content', item: item
