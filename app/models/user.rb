@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def position
-    User.where('points <= ?', points).count
+    User.where('points >= ?', points).count
   end
 
 

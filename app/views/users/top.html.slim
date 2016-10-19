@@ -4,9 +4,9 @@
   table.table
     thead
       tr.table-head-line
-        th.table-title.table-title--number №
-        th.table-title.table-title--name Имя
-        th.table-title.table-title--points Баллы
+        th.table-title.table-title--number Место
+        th.table-title.table-title--name Участник
+        th.table-title.table-title--points Результат
     tbody
       - @users.each_with_index do |user, index|
         tr.table-line(class="#{user[:current] ? 'table-line--current' : ''}")
@@ -15,7 +15,7 @@
           td.table-cell
             .table-user
               .table-user__photo
-                = image_tag 'user-photo.png', class: 'user-photo user-photo--small'
-              .table-user__name.text.text--small.text--strong= user[:name]
+                = gravatar_image_tag(user.email, class: 'user-photo user-photo--small', alt: user.full_name)
+              .table-user__name.text.text--small.text--strong= user.full_name
           td.table-cell
-            .text.text--small.text--center.text--strong= user[:points]
+            .text.text--small.text--center.text--strong= user.points
