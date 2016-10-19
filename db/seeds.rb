@@ -4,7 +4,7 @@ quests = [
     {title: 'Анкета',
      state: :active,
      description: 'Расскажи нам немного о себе',
-     code: 'anketa',
+     code: 'questionnaire',
      points: 3,
      answer: ''},
 
@@ -22,7 +22,7 @@ quests = [
      description: 'Напиши код, который будет показывать есть ли в сроке “String” подстрока “ng”, “String”.include? “ng”  не предлагать :-)',
      code: 'strings',
      points: 4,
-     answer: '“String”[“ng”]'},
+     answer: 'String[ng]'},
 
     # Немного искусства
     {title: 'Немного искусства',
@@ -35,10 +35,10 @@ quests = [
     # БОЛЬШИЕ ЧИСЛА
     {title: 'БОЛЬШИЕ ЧИСЛА',
      state: :active,
-     description: 'Как еще можно записать число 1 000 000 в ruby',
+     description: 'Как можно записать число 1 000 000 в ruby?',
      code: 'bignums',
      points: 3,
-     answer: '“String”[“ng”]'},
+     answer: '1e6'},
 
     # История АТ Consulting
     {title: 'История АТ Consulting',
@@ -112,9 +112,17 @@ quests = [
      description: 'Напиши последние 10 цифр суммы 1^1 + 2^2 + 3^3 + ... + 1000^1000',
      code: 'alg3',
      points: 2,
-     answer: '9110846700'}
+     answer: '9110846700'},
+
+    # Отзыв
+    {title: 'Ваше мнение',
+     state: :active,
+     description: 'Наш квест подошел к концу, нам хотелось бы получить обратную сзязь от участников, чтобы в слудующем году сделать RailsClub лучше',
+     code: 'feedback',
+     points: 1,
+     answer: ''}
 ]
 
-quests.each do |quest_data|
-  Quest.create(quest_data)
+quests.each_with_index do |quest_data, index|
+  Quest.create(quest_data.merge(priority: index + 1))
 end

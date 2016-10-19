@@ -2,7 +2,7 @@
   .header-stats
     .header-stats__progress
       .progress
-        .progress__line(style="width: #{current_user.progress}%;")
+        .progress__line(style="width: #{@current_user.quest_count.zero? ? 0 : current_user.progress}%;")
     .header-stats__toggler
       .js-toggler-show-active.toggler.toggler--right
         input.toggler__input(type='checkbox' id='show_active' checked=('checked' unless params[:all]))
@@ -13,8 +13,8 @@
             .toggler__toggle
 
   .quests
-    - if @quest_items.count == 0
-      .text.text--middle.text--center.text--strong Нет квестов :-(
+    - if current_user.quest_count.zero?
+      .text.text--middle.text--center.text--strong Попдожди минутку, мы создаем для тебя задания на квест
     - else
       - @quest_items.each do |item|
         -# рендерим див или ссылку

@@ -7,9 +7,17 @@ class QuestItem < ApplicationRecord
 
   enum state: [:uncompleted, :checking, :completed,  :unresolved]
 
-  scope :available, -> { where(state: [:uncompleted, :checking]).where('start_at <= :now AND end_at >= :now', now: Time.now) }
+  scope :available, -> { where(state: [:uncompleted, :completed, :checking]).where('start_at <= :now AND end_at >= :now', now: Time.now) }
+
+  before_save :set_points
 
   def available?
-    %w(uncompleted checking).include?(state) && (start_at.utc..end_at.utc).include?(Time.now.utc)
+    %w(uncompleted checking completed).include?(state) && (start_at.utc..end_at.utc).include?(Time.now.utc)
+  end
+
+  private
+
+  def set_points
+    user.update(points: user.points + quest.points) if state_changed? && state == 'completed'
   end
 end

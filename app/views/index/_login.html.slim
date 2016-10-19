@@ -4,7 +4,7 @@
     .modal-inner.modal-inner--login
       .login
         .login__content
-          .title.title--large.title--center.title--space Логин
+          .title.title--large.title--center.title--space Поехали
 
           - User.omniauth_providers.each do |provider|
             a(class="social-button social-button--space social-button--#{provider}" href=url_for([:user, provider, :omniauth, :authorize]))
@@ -13,4 +13,4 @@
               .social-button__content Начать квест
               .social-button__count +#{Settings.sign_in_reward[provider]}
 
-        .login__footer При выполнении квестов будь внимателен! Помимо основных квестов, ты можешь встретить секретные задания.
+        .login__footer Нажимая на кнопку "Начать квест" вы даете согласие на обработку персональных данных в соответствии с законодательством России

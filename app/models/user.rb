@@ -14,6 +14,15 @@ class User < ApplicationRecord
     (quest_items.where('end_at < ?', Time.now).count.to_f / quest_items.count) * 100
   end
 
+  def quest_count
+    quest_items.count
+  end
+
+  def position
+    User.where('points <= ?', points).count
+  end
+
+
   private
 
   def generate_quest_items

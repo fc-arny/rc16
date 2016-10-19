@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018064445) do
+ActiveRecord::Schema.define(version: 20161019131346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161018064445) do
     t.integer "state",       default: 0,         null: false, comment: "Статус квеста, показывать/не показывать"
     t.text    "answer",                          null: false, comment: "Правильный ответ, можно json запихать туда"
     t.string  "checker",     default: "compare", null: false, comment: "Метод отвечающий за проверку ответа"
+    t.integer "priority",    default: 100000,                 comment: "Порядок квестов"
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
