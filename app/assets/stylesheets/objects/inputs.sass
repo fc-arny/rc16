@@ -1,8 +1,21 @@
 .input-wrapper
+  position: relative
   &--space
     margin-bottom: 10px
   &--largespace
     margin-bottom: 20px
+  &--icon
+    .input
+      padding-right: 40px
+  &__icon
+    position: absolute
+    right: 20px
+    top: 18px
+    display: none
+    +sprite_icon(common_success_green)
+  &--icon-visible
+    .input-wrapper__icon
+      display: block
   .text
     margin-top: 4px
 
@@ -14,6 +27,16 @@
   border: 1px solid $gray_border
   line-height: 47px
   font-size: 14px
+
+  &::-webkit-input-placeholder
+    color: $gray_text
+  &::-moz-placeholder
+    color: $gray_text
+  &:-moz-placeholder
+    color: $gray_text
+  &:-ms-input-placeholder
+    color: $gray_text
+
   &:focus
     border-color: $orange_btn
   &--error

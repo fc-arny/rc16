@@ -1,0 +1,24 @@
+.checkbox
+  &--center
+    text-align: center
+  &--space
+    margin-bottom: 25px
+  &__input
+    display: none
+    &:checked
+      & ~ .checkbox__label
+        .checkbox__icon
+          +sprite_icon(checkbox_checked)
+  &__icon,
+  &__text
+    display: inline-block
+    vertical-align: middle
+  &__icon
+    margin-right: 10px
+    cursor: pointer
+    +sprite_icon(checkbox)
+  &__text
+    max-width: calc(100% - 35px)
+    font-size: 14px
+    color: $gray_text
+    +user-select(none)

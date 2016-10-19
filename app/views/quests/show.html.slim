@@ -12,8 +12,7 @@
       | пункте вариантами завершения предложения.
       | Для оценки каждого из вариантов ( а, б, в, г ).
 
-    = form_for 'quest', remote: true, method: :patch, html: { class: 'js-form' } do |f|
-      .input-wrapper.input-wrapper--largespace
-        = f.text_field :answer, placeholder: 'Ваш вариант ответа', class: 'input'
-        .js-form-error.text.text--small.text--error
-      button.btn.btn--default.btn--justify.btn--large(type='submit' data-disable-with='Отправляем...' method='PATCH') Ответить
+    - if false
+      = render 'default'
+    - else
+      = render 'questionnaire'
