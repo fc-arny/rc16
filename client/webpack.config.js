@@ -6,19 +6,23 @@ var app_path                       = path.join('app');
 var NODE_ENV                       = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  context : path.resolve('./'),
+  context : __dirname,
 
   entry: {
-    'vendor-bundle': './app'
+    vendor: [
+      'jquery',
+      'jquery-ujs',
+      './app'
+    ]
   },
 
   output: {
     path: '../app/assets/javascripts/bundle',
-    filename: '[name].chunk.js',
-    publicPath: '../app/assets/javascripts'
+    filename: 'vendor-bundle.chunk.js'
   },
 
   resolve : {
+    root: [path.join(__dirname, 'app')],
     extensions: ['', '.js'],
     alias : {
       components : path.resolve(app_path + '/components'),
@@ -33,9 +37,11 @@ module.exports = {
       test: path.resolve(app_path),
       include: path.resolve(app_path)
     }, {
-      test: /jquery\.js$/, loader: 'expose?$',
+      test: require.resolve('jquery'), loader: 'expose?jQuery'
     }, {
-      test: /jquery\.js$/, loader: 'expose?jQuery'
+      test: require.resolve('jquery'), loader: 'expose?$'
+    }, {
+      test: require.resolve('jquery-ujs'), loader: 'imports?jQuery=jquery'
     }]
   },
 

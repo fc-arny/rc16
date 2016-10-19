@@ -1,6 +1,6 @@
 'use strict';
 
-$('.js-form')
+$(document)
   .on('ajax:error', function(event, xhr, status, error) {
     /** Вставляем ошибку в ноду **/
     $('.js-form-error').text(error);

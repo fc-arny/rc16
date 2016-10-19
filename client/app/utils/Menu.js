@@ -1,7 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
-
 class Menu {
   constructor(config) {
     this.opened       = false;
@@ -50,7 +48,8 @@ class Menu {
 
     $(this.menu).addClass('menu-bar--opened')
     $(this.mask).addClass('mask--active');
-    $('html, body').addClass('body-no-scroll');
+
+    $('body').trigger('remove:scroll');
 
     this.addEscListener();
   }
@@ -60,7 +59,8 @@ class Menu {
 
     $(this.menu).removeClass('menu-bar--opened')
     $(this.mask).removeClass('mask--active');
-    $('html, body').removeClass('body-no-scroll');
+
+    $('body').trigger('add:scroll');
 
     this.removeEscListener();
   }

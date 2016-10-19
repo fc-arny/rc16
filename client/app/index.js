@@ -1,7 +1,5 @@
 'use strict';
 
-require('jquery-ujs');
-
 import Togglers from 'objects/Togglers';
 import Menu     from 'objects/Menu';
 import Scroll   from 'objects/Scroll';

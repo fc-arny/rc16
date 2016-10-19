@@ -1,7 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
-
 class Toggler {
   constructor(props) {
     this.toggler = props.toggler;

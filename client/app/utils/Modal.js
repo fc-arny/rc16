@@ -1,7 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
-
 const closeClasses = ['js-modal', 'modal-middle', 'js-modal-close'];
 
 class Modal {
@@ -49,14 +47,16 @@ class Modal {
 
   show() {
     $(this.modal).show();
-    $('html, body').addClass('body-no-scroll');
+
+    $('body').trigger('remove:scroll');
 
     this.addEscListener();
   }
 
   hide() {
     $(this.modal).hide();
-    $('html, body').removeClass('body-no-scroll');
+
+    $('body').trigger('add:scroll');
 
     this.removeEscListener();
   }
