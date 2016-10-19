@@ -19,7 +19,7 @@
       - @quest_items.each do |item|
         -# рендерим див или ссылку
         - if item.available?
-          a.quest-item(href=quest_path(item.id))
+          a.quest-item(href=quest_path(item.quest.id))
             = render 'quest_content', item: item
         - else
           .quest-item

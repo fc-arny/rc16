@@ -1,14 +1,10 @@
 = image_tag 'quest-photo.png', class: 'quest-item__image'
 .quest-item__info
   .quest-item__heading
-    .text.text--middle= item.quest.title
-  /.quest-item__description
-  /  .text.text--small= item.quest.description
+    = item.quest.title
   .quest-item__status
-    .quest-status(class="quest-status--#{item.completed? ? 'completed' : 'points'}")
-      - if item.completed?
-        .quest-status__icon.icons-common_success
-      - elsif item.unresolved?
-        .quest-status__icon.icons-common_failed
-      - else
+    .quest-status(class="quest-status--#{item.state}")
+      - if item.uncompleted?
         = "+#{item.quest.points}"
+      - else
+        .quest-status__icon

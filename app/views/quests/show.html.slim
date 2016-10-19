@@ -1,25 +1,19 @@
 .container.container--space
-  /h1= "Карточка квеста ID: #{@quest_item.quest.id}"
-  / .quest-item
-  /   = render 'quest_content', item: item
   .quest-item
-    = image_tag 'quest-photo.png', class: 'quest-item__image'
-    .quest-item__info
-      .quest-item__heading
-        .text.text--middle title
-      .quest-item__description
-        .text.text--small description
-      .quest-item__status
-        .quest-status(class='quest-status--completed')
-          .quest-status__icon.icons-common_success
+    = render 'quest_content', item: @quest_item
 
   .card-content
+    .text.text--small.text--largespace
+      = @quest_item.quest.description.html_safe
     .text.text--small.text--largespace
       | Внимательно прочтите каждое утверждение.
       | Оцените в баллах его значимость, распределив
       | 11 баллов между четырьмя предложенными в каждом
       | пункте вариантами завершения предложения.
       | Для оценки каждого из вариантов ( а, б, в, г ).
-    form
-      input.input.input--largespace(placeholder='Ваш вариант ответа')
-      button.btn.btn--default.btn--justify.btn--large(type='submit') Ответить
+
+    = form_for 'quest', remote: true, method: :patch, html: { class: 'js-form' } do |f|
+      .input-wrapper.input-wrapper--largespace
+        = f.text_field :answer, placeholder: 'Ваш вариант ответа', class: 'input'
+        .js-form-error.text.text--small.text--error
+      button.btn.btn--default.btn--justify.btn--large(type='submit' data-disable-with='Отправляем...' method='PATCH') Ответить

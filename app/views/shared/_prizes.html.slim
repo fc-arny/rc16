@@ -1,6 +1,7 @@
-.js-quest-rules.main
-  .main__logo
-    a.logo.icons-logo(href=root_path)
+.js-quest-rules
+  - unless user_signed_in?
+    .main__logo
+      a.logo.icons-logo(href=root_path)
   .main-title
     .text.text--middle.text--center Внимательно прочтите каждое утверждение. Оцените в баллах его значимость, распределив 11 баллов между четырьмя предложенными в каждом пункте вариантами завершения. 
   .quest-position.quest-position--space

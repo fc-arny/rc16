@@ -13,11 +13,16 @@
   position: relative
   display: block
   margin-bottom: 10px
+  padding-bottom: 50%
   color: $white
-  background-color: purple
   &:last-child
     margin-bottom: 0
   &__image
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
     width: 100%
   &__info
     position: absolute
@@ -25,10 +30,12 @@
     bottom: 0
     width: 100%
     height: 61px
-    padding: 7px 80px 5px 16px
+    padding-right: 80px
+    padding-left: 16px
     background-color: rgba(0, 0, 0, .5)
-  &__heading,
-  &__description
+  &__heading
+    font-size: 18px
+    line-height: 61px
     .text
       +cut-text
   &__fader
@@ -44,17 +51,34 @@
     font-size: 21px
     font-weight: bold
     color: $white
-    &--points
+    &:before
+      content: ''
+      position: absolute
+      left: -9px
+      top: 50%
+      margin-top: -9px
+    &--uncompleted
       background-color: #00a0b6
       &:before
-        content: ''
-        position: absolute
-        left: -9px
-        top: 50%
-        margin-top: -9px
         +arrow-left(10px, 18px, #00a0b6)
     &--completed
       background-color: #9cc758
+      &:before
+        +arrow-left(10px, 18px, #9cc758)
+      .quest-status__icon
+        +sprite_icon(common_success)
+    &--unresolved
+      background-color: $red_border
+      &:before
+        +arrow-left(10px, 18px, $red_border)
+      .quest-status__icon
+        +sprite_icon(common_close_white)
+    &--checking
+      background-color: $yellow
+      &:before
+        +arrow-left(10px, 18px, $yellow)
+      .quest-status__icon
+        +sprite_icon(common_clock_mini)
     &__icon
       +center
 

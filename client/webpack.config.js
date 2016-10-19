@@ -32,6 +32,10 @@ module.exports = {
       loader: 'babel',
       test: path.resolve(app_path),
       include: path.resolve(app_path)
+    }, {
+      test: /jquery\.js$/, loader: 'expose?$',
+    }, {
+      test: /jquery\.js$/, loader: 'expose?jQuery'
     }]
   },
 

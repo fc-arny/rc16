@@ -1,3 +1,11 @@
+.input-wrapper
+  &--space
+    margin-bottom: 10px
+  &--largespace
+    margin-bottom: 20px
+  .text
+    margin-top: 4px
+
 .input
   display: block
   width: 100%
@@ -6,7 +14,9 @@
   border: 1px solid $gray_border
   line-height: 47px
   font-size: 14px
-  &--space
-    margin-bottom: 10px
-  &--largespace
-    margin-bottom: 20px
+  &:focus
+    border-color: $orange_btn
+  &--error
+    border-color: $red_border
+  &--success
+    border-color: $green_progress
