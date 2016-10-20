@@ -1,0 +1,19 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        quest:
+          attributes:
+
+    models:
+      quest:
+        one: Квест
+        few: Квесты
+        many: Квесты
+        other: Квесты
+
+    attributes:
+      user:
+        id: Идентификатор
+        title: Название
+        description: Описание

@@ -17,5 +17,13 @@ Rails.application.routes.draw do
   get 'prizes' => 'prizes#index'
   get 'top' => 'top#index'
 
+  namespace :hr do
+    resources :users
+    resources :quests
+    resources :quest_items
+    root to: 'users#index'
+  end
+
+
   root to: 'index#main'
 end
