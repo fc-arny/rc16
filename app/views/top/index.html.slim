@@ -1,1 +1,31 @@
-h1 рейтинг <3
+- content_for :base do
+  .top
+    .top-video
+      .top-video__logo
+        .icons-logo_large
+      .top-video__player
+        div(style='padding-bottom: 70.4370179948586%; background-color: gray;')
+      .top-video__social
+        .icons-social_items
+    .top-users
+      .top-users__heading
+        .title.title--superlarge Рейтинг Участников
+
+      table.table
+        thead
+          tr.table-head-line.table-head-line--top
+            th.table-title.table-title--number.table-title--top №
+            th.table-title.table-title--name.table-title--top Имя
+            th.table-title.table-title--points.table-title--top Баллы
+        tbody
+          - @users.each_with_index do |user, index|
+            tr.table-line.table-line--top
+              td.table-cell
+                .text.text--top.text--center.text--strong= index + 1
+              td.table-cell
+                .table-user
+                  .table-user__photo
+                    = gravatar_image_tag(user.email, class: 'user-photo user-photo--top', alt: user.full_name)
+                  .table-user__name.text.text--top.text--strong= user.full_name
+              td.table-cell
+                .text.text--top.text--strong= user.points

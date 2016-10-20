@@ -3,6 +3,13 @@
 
 .table-head-line
   height: 40px
+  &--top
+    height: 70px
+    background-color: $title_color
+    .table-title--points
+      text-align: left
+    .table-title--name
+      padding-left: 142px
 
 .table-title
   font-size: 12px
@@ -14,13 +21,20 @@
     text-align: left
   &--points
     width: 17%
+  &--top
+    font-size: 30px
+    color: $white
 
 .table-line
   height: 82px
-  &:not(.table-line--current):nth-child(odd)
+  &:nth-child(odd)
     background-color: $white_darker
-  &--current
-    background-color: $green_current
+  &--top
+    height: 126px
+    &:nth-child(odd)
+      background-color: $blue_bg
+    .table-user__photo
+      margin-right: 52px
 
 .table-user
   &__photo,
