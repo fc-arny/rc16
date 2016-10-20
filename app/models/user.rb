@@ -10,6 +10,9 @@ class User < ApplicationRecord
 
   has_many :quest_items
 
+  scope :active, -> { where(active: true) }
+  scope :rated,  -> { active.order(points: :desc) }
+
   def progress
     (quest_items.where('end_at < ?', Time.now).count.to_f / quest_items.count) * 100
   end
@@ -19,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def position
-    User.where('points >= ?', points).count
+    User.active.where('points >= ?', points).count
   end
 
 

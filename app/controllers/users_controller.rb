@@ -7,6 +7,6 @@ class UsersController < ApplicationController
   end
 
   def top
-    @users = User.order(points: :desc, updated_at: :asc).limit(25)
+    @users = User.rated.limit(25)
   end
 end
