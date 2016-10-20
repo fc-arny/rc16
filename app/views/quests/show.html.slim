@@ -12,8 +12,8 @@
       | пункте вариантами завершения предложения.
       | Для оценки каждого из вариантов ( а, б, в, г ).
 
-    - if %w(questionnaire feedback),include? @quest_item.code
-      = render @quest_item.code
+    - if %w(questionnaire feedback).include? @quest_item.quest.code
+      = render @quest_item.quest.code
     - else
       = render 'default'
 

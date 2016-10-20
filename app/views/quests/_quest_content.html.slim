@@ -1,4 +1,5 @@
-= image_tag 'quest-photo.png', class: 'quest-item__image'
+= image_tag "quest/#{item.quest.code}.jpg", class: 'quest-item__image'
+
 .quest-item__info
   .quest-item__heading
     = item.quest.title
