@@ -22,15 +22,18 @@ class QuestsController < ApplicationController
 
     result = case @quest_item.quest.code
              when 'photo', 'feedback', 'questionnaire'
+               message = 'Ответ отправлен на проверка ораганизаторов'
                @quest_item.state = :checking
                true
              else
+               message = "Верный ответ!  +#{@quest_item.quest.points}#{Russian.p(@quest_item.quest.points, 'бал', 'бала', 'балов')}"
                @quest_item.state = :completed
 
-               quest_params[:answer].to_s.strip.gsub(/"/, '').gsub(/'/, '') == @quest_item.quest.answer
+               quest_params[:answer].to_s.strip.gsub(/"/, '').gsub(/'/, '').gsub(/\s/, '') == @quest_item.quest.answer.gsub(/\s/, '')
              end
 
     if result
+      flash[:quest] = message
       @quest_item.data = quest_params
       @quest_item.save
       head :no_content

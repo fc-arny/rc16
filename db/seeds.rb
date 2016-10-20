@@ -27,7 +27,7 @@ quests = [
     # Немного искусства
     {title: 'Немного искусства',
      state: :active,
-     description: 'Сделай фото в соцсетях с хэштегом: #railsclub&atconsulting2016 на фотографии обязательно должен быть логотип АТ Consulting и 2 участника конференции',
+     description: 'Сделай фото в соцсетях с хэштегом: #atconsultingrailsclub на фотографии обязательно должен быть логотип АТ Consulting и 2 участника конференции',
      code: 'photo',
      points: 5,
      answer: ''},

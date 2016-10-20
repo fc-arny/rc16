@@ -1,4 +1,10 @@
 .container.container--space
+  .header-stats
+    a.link(href=quests_path) ← Вернуться к списку
+
+    span.alert.alert-success
+      = flash[:quest]
+
   .quest-item
     = render 'quest_content', item: @quest_item
 
@@ -6,14 +12,16 @@
     .text.text--small.text--largespace
       = @quest_item.quest.description.html_safe
     .text.text--small.text--largespace
-      | Внимательно прочтите каждое утверждение.
-      | Оцените в баллах его значимость, распределив
-      | 11 баллов между четырьмя предложенными в каждом
-      | пункте вариантами завершения предложения.
-      | Для оценки каждого из вариантов ( а, б, в, г ).
-
-    - if %w(questionnaire feedback).include? @quest_item.quest.code
-      = render @quest_item.quest.code
+    - if @quest_item.unresolved?
+      p(style='color: red') Данный квест не был решен =(
+    - elsif @quest_item.completed?
+      p(style='color: green')= "Квест пройдет успешно! +#{@quest_item.quest.points} в копилку"
+    - elsif @quest_item.checking?
+      p(style='color: yellow')= 'Ответ проверяется'
+      = render @quest_item.quest.code, item: @quest_item
     - else
-      = render 'default'
+      - if %w(questionnaire feedback).include? @quest_item.quest.code
+        = render @quest_item.quest.code, item: @quest_item
+      - else
+        = render 'default', item: @quest_item
 
