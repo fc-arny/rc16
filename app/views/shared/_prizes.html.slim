@@ -5,23 +5,21 @@
   .main-title
     .text.text--middle.text--center Внимательно прочтите каждое утверждение. Оцените в баллах его значимость, распределив 11 баллов между четырьмя предложенными в каждом пункте вариантами завершения. 
   .quest-position.quest-position--space
+    .column.column--6.column--padding
+      .text.text--small Займи первое место и выиграй крутой гироскутер. Описание, описание.
     .column.column--6
-      .text.text--small Займи первое местои выиграй крутой гироскутер. Описание, описание.
-    .column.column--6
-      = image_tag 'present_first.png', class: 'quest-position__image'
-  .quest-position.quest-position--space
-    .column.column--6
-      = image_tag 'present_first.png', class: 'quest-position__image'
-    .column.column--6
-      .text.text--small Займи первое местои выиграй крутой гироскутер. Описание, описание.
+      .quest-position__image-wrap.quest-position__image-wrap--first
+        = image_tag 'present_list_1.jpg', class: 'quest-position__image'
   .quest-position.quest-position--largespace
+    .column.column--6.column--padding
+      .quest-position__image-wrap.quest-position__image-wrap--second
+        = image_tag 'present_list_2.jpg', class: 'quest-position__image'
     .column.column--6
-      .text.text--small Займи первое местои выиграй крутой гироскутер. Описание, описание.
-    .column.column--6
-      = image_tag 'present_first.png', class: 'quest-position__image'
+      .text.text--small Участники, которые займут со 2-го по 13-е место - получат набор Йодо
   - unless user_signed_in?
-    .quest-position.quest-position--center
+    .quest-position.quest-position--center.quest-position--space
       button.js-begin-quest.btn.btn--default Начать квест
+    .text.text--small.text--italic.text--center.text--addition Нажимая кнопку «Начать квест», вы даете свое согласие на обработку персональных данных.
 
 - unless user_signed_in?
   = render 'index/login'

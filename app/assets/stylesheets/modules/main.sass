@@ -25,8 +25,14 @@
     margin: 0 auto 13px
 
 .main-present
-  background: asset_url('main_present.png') no-repeat center center
+  position: relative
+  background: asset_url('present_bg.png') no-repeat center center
   background-size: contain
+  &__item
+    background: asset_url('present_1.jpg') no-repeat center center
+    background-size: 70%
+    +center
+    z-index: -1
 
 .main-begin
   text-align: center
@@ -48,8 +54,19 @@
     margin-bottom: 15px
   &--largespace
     margin-bottom: 50px
+  &__image-wrap
+    position: relative
+  &__image-wrap--first
+    padding-bottom: 85%
+  &__image-wrap--second
+    padding-bottom: 70.25316455696202%
   &__image
-    width: 100%
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: -1
 
 @media screen and (max-height: 568px)
   .main

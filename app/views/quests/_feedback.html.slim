@@ -1,1 +1,8 @@
-h1 Отзыв
+= form_for 'quest', remote: true, method: :patch, html: { class: 'js-form' } do |f|
+  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
+    = f.text_field :title, placeholder: 'Заголовок', class: 'input'
+    .input-wrapper__icon
+
+  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
+    = f.text_field :description, placeholder: 'Описание', class: 'input'
+    .input-wrapper__icon
