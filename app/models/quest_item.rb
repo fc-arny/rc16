@@ -18,6 +18,6 @@ class QuestItem < ApplicationRecord
   private
 
   def set_points
-    user.update(points: user.points + quest.points) if state_changed? && state == 'completed'
+    user.lock!.update(points: user.points + quest.points) if state_changed? && state == 'completed'
   end
 end

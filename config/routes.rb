@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   namespace :hr do
     resources :users
     resources :quests
-    resources :quest_items
+    resources :quest_items do
+      post :accept, on: :member
+      post :reject, on: :member
+    end
     root to: 'users#index'
   end
 

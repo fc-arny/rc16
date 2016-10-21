@@ -1,0 +1,8 @@
+ru:
+  administrate:
+    actions:
+      quest_items:
+        accept:    Принять
+        accepting: Даём очки…
+        reject:    Отклонить
+        rejecting: Обламываем…
