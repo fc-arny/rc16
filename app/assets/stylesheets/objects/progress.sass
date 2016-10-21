@@ -1,18 +1,17 @@
 .progress
-  height: 10px
-  padding: 1px
-  border: 1px solid $gray_border
-  +border-radius(3px)
+  position: relative
+  overflow: hidden
+  height: 12px
+  background-color: $gray_border
+  +border-radius(10px)
   &__line
-    position: relative
-    height: 6px
+    position: absolute
+    height: 100%
     background-color: $green_progress
-    +border-radius(2px 0 0 2px)
-    &:after
-      content: ''
-      position: absolute
-      right: 0
-      bottom: 0
-      height: 13px
-      width: 1px
-      background-color: $orange_btn
+    +border-radius(10px 0 0 10px)
+    +gradient-horizontal(rgb(108, 194, 125), rgb(157, 205, 88))
+    &[style^='width: 97'],
+    &[style^='width: 98'],
+    &[style^='width: 99'],
+    &[style^='width: 100']
+      +border-radius(10px)

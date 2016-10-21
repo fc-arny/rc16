@@ -71,6 +71,12 @@
   background:      -o-linear-gradient(top, $from, $to)
   background:         linear-gradient(to bottom, $from, $to)
 
+=gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%)
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent)
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent)
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent)
+  background-repeat: repeat-x
+
 /** Iphone 5 **/
 =iphone_5($orientation)
   @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation: $orientation)
