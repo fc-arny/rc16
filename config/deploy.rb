@@ -19,6 +19,7 @@ append :linked_dirs,
        'tmp/pids',
        'tmp/sockets',
        'public/system',
+       'public/ckeditor_assets',
        'node_modules'
 
 set :scm, :git

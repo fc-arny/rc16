@@ -29,6 +29,7 @@ config/environments/*.local.ymlconfig/crt/*
 
 # client
 public/assets/*
+public/ckeditor_assets/*
 public/javascripts/i18n.js
 public/javascripts/i18n/*
 
