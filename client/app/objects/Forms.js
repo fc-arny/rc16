@@ -6,7 +6,7 @@
 $(document)
   .on('ajax:error', function(event, xhr, status, error) {
     /** Вставляем ошибку в ноду **/
-    $('.js-form-error').text(error);
+    $('.js-form-error').text('Неверный ответ, попробуй еще раз :-)');
   })
   .on('ajax:success', function(data, status, xhr) {
     /** Перезагружаем страницу **/
