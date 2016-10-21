@@ -53,6 +53,8 @@ gem 'coffee-rails'
 gem 'compass-core',  git: 'https://github.com/Davidiusdadi/compass',  branch: 'core'
 gem 'compass-rails'
 
+gem 'ckeditor'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

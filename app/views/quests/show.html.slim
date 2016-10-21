@@ -10,7 +10,7 @@
 
   .card-content
     .text.text--small.text--largespace
-      = @quest_item.quest.description.html_safe
+      = sanitize(@quest_item.quest.description)
     .text.text--small.text--largespace
     - if @quest_item.unresolved?
       p(style='color: red') Данный квест не был решен =(
@@ -24,4 +24,3 @@
         = render @quest_item.quest.code, item: @quest_item
       - else
         = render 'default', item: @quest_item
-
