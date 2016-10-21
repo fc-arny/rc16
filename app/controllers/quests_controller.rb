@@ -29,7 +29,7 @@ class QuestsController < ApplicationController
                message = "Верный ответ!  +#{@quest_item.quest.points}#{Russian.p(@quest_item.quest.points, 'бал', 'бала', 'балов')}"
                @quest_item.state = :completed
 
-               quest_params[:answer].to_s.strip.gsub(/"/, '').gsub(/'/, '').gsub(/\s/, '') == @quest_item.quest.answer.gsub(/\s/, '')
+               quest_params[:answer].downcase.to_s.strip.gsub(/"/, '').gsub(/'/, '').gsub(/\s/, '') == @quest_item.quest.answer.gsub(/\s/, '').downcase
              end
 
     if result
@@ -46,6 +46,8 @@ class QuestsController < ApplicationController
 
   def find_quest
     @quest_item = policy_scope(QuestItem).includes(:quest).find_by(quest_id: params[:id])
+
+    return head :not_found unless @quest_item
   end
 
   def quest_params

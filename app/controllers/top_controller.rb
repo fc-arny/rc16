@@ -2,6 +2,6 @@ class TopController < ApplicationController
   layout 'base'
 
   def index
-    @users = User.order(points: :desc, updated_at: :asc)
+    @users = User.rated
   end
 end

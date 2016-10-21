@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+
+    models:
+      quest_item:
+        one: Ответ
+        few: Ответы
+        many: Ответов
+        other: Ответ

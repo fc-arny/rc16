@@ -3,10 +3,13 @@
     .main__logo
       a.logo.icons-logo(href=root_path)
   .main-title
-    .text.text--middle.text--center Внимательно прочтите каждое утверждение. Оцените в баллах его значимость, распределив 11 баллов между четырьмя предложенными в каждом пункте вариантами завершения. 
+    .text.text--middle.text--center
+      | Квест начинается в 11:45 и заканчивается в 16:15,
+      br
+      |  на каждое задние дается 45 мининут. Итоги будут подведены в 16:35.
   .quest-position.quest-position--space
     .column.column--6.column--padding
-      .text.text--small Займи первое место и выиграй крутой гироскутер. Описание, описание.
+      .text Победитель получает крутой зимний гироскутер
     .column.column--6
       .quest-position__image-wrap.quest-position__image-wrap--first
         = image_tag 'present_list_1.jpg', class: 'quest-position__image'
@@ -15,7 +18,7 @@
       .quest-position__image-wrap.quest-position__image-wrap--second
         = image_tag 'present_list_2.jpg', class: 'quest-position__image'
     .column.column--6
-      .text.text--small Участники, которые займут со 2-го по 13-е место - получат набор Йодо
+      .text Участники, которые займут со 2-го по 13-е место - получат набор Йодо
   - unless user_signed_in?
     .quest-position.quest-position--center.quest-position--space
       button.js-begin-quest.btn.btn--default Начать квест
