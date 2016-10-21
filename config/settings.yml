@@ -1,6 +1,6 @@
 quest:
-  start_at: '2016-10-22 11:45+03:00'
-  interval: 15
+  start_at: '2016-10-21 20:25+03:00'
+  interval: 2
 atc_link: http://www.at-consulting.ru/
 
 sign_in_reward:

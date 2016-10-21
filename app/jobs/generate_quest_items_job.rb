@@ -6,10 +6,10 @@ class GenerateQuestItemsJob < ApplicationJob
     # Квесты уже сгенерированы
     return if QuestItem.where(user_id: user_id).count.positive?
 
-    start_with = Rails.env.production? ? DateTime.parse(Settings.quest.start_at) : Time.now
+    start_with = DateTime.parse(Settings.quest.start_at)
 
     Quest.active.order(:priority).each_with_index do |quest, index|
-      start_at = start_with + (index * 15).minutes
+      start_at = start_with + (index * Settings.quest.interval.to_i).minutes
       QuestItem.create(quest: quest, user: user, start_at: start_at, end_at: start_at + 45.minutes)
     end
   end
