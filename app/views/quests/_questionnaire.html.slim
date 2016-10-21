@@ -1,26 +1,32 @@
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :age, placeholder: 'Возраст', class: 'input', value: item.data['age']
+  = form.label :age, 'Возраст', class: 'label'
+  = form.text_field :age, class: 'input', value: item.data['age']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :phone, placeholder: 'Контактный телефон', class: 'input', value: item.data['phone']
+  = form.label :phone, 'Контактный телефон', class: 'label'
+  = form.text_field :phone, class: 'input', value: item.data['phone']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :project, placeholder: 'Твой самый крутой проект', class: 'input', value: item.data['project']
+  = form.label :project, 'Твой самый крутой проект', class: 'label'
+  = form.text_field :project, class: 'input', value: item.data['project']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :experience, placeholder: 'Сколько лет кодишь на Ruby', class: 'input', value: item.data['experience']
+  = form.label :experience, 'Сколько лет кодишь на Ruby', class: 'label'
+  = form.text_field :experience, class: 'input', value: item.data['experience']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :social, placeholder: 'Как тебя можно найти в соцсетях', class: 'input', value: item.data['social']
+  = form.label :social, 'Как тебя можно найти в соцсетях', class: 'label'
+  = form.text_field :social, class: 'input', value: item.data['social']
   .text.text--supersmall.text--addition.text--italic Harbahabr, Facebook, VK, LinkedIn, Мой круг
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :workplace, placeholder: 'Где сейчас работаешь (над чем)', class: 'input', value: item.data['workplace']
+  = form.label :workplace, 'Где сейчас работаешь (над чем)', class: 'label'
+  = form.text_field :workplace, class: 'input', value: item.data['workplace']
   .input-wrapper__icon
 
 .checkbox.checkbox--space
