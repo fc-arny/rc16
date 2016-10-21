@@ -15,7 +15,7 @@
           td.table-cell
             .table-user
               .table-user__photo
-                = gravatar_image_tag(user.email, class: 'user-photo user-photo--small', alt: user.full_name)
+                = gravatar_image_tag(user.email, class: 'user-photo user-photo--small', alt: user.full_name, gravatar: {secure: true})
               .table-user__name.text.text--small.text--strong= user.full_name
           td.table-cell
             .text.text--small.text--center.text--strong= user.points

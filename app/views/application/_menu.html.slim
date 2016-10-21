@@ -14,7 +14,7 @@
       .menu-bar__user
         .menu-user
           .menu-user__photo-wrap
-            = image_tag gravatar_image_url(current_user.email, secure: true), class: 'user-photo', alt: current_user.full_name
+            = gravatar_image_tag(current_user.email, class: 'user-photo', alt: current_user.full_name, gravatar: {secure: true})
           .menu-user__name.text.text--middle.text--strong.text--center= current_user.full_name
         .menu-stats
           .menu-stats__flag.icons-stats_flag
