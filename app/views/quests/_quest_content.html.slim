@@ -1,11 +1,12 @@
 = image_tag "quest/#{item.quest.code}.jpg", class: 'quest-item__image'
 
-.quest-item__info
-  .quest-item__heading
-    = item.quest.title
-  .quest-item__status
-    .quest-status(class="quest-status--#{item.state}")
-      - if item.uncompleted?
-        = "+#{item.quest.points}"
-      - else
-        .quest-status__icon
+- if item.start_at < Time.now
+  .quest-item__info
+    .quest-item__heading
+      = item.quest.title
+    .quest-item__status
+      .quest-status(class="quest-status--#{item.state}")
+        - if item.uncompleted?
+          = "+#{item.quest.points}"
+        - else
+          .quest-status__icon

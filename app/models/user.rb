@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def position
-    User.active.where('points >= ?', points).count
+    User.rated.where('points >= ?', points).pluck('id').index(id) + 1
   end
 
 

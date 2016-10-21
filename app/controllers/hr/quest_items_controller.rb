@@ -17,7 +17,7 @@ module Hr
     # for more information
 
     def index
-      resources = QuestItem.all.eager_load(:user, :quest).page(params[:page])
+      resources = QuestItem.eager_load(:user, :quest).page(params[:page])
       resources = resources.where(state: params[:state]) if params[:state].present?
       if params[:search].present?
         s = "%#{params[:search].to_s.strip}%"

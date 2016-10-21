@@ -13,8 +13,11 @@
             .toggler__toggle
 
   .quests
-    - if DateTime.parse(Settings.quest.start_at) > Time.now
-      .text.text--middle.text--center Скоро начнем
+    - if Settings.quest.start_at > Time.now
+      .text.text--middle.text--center В 11:45 начнем, потерпи :-)
+
+    - if QuestItem.maximum(:end_at) < Time.now
+      .text.text--middle.text--center До новых встреч, на этот раз все...
 
     - if current_user.quest_count.zero?
       .text.text--middle.text--center Подожди минутку, мы создаем для тебя задания...

@@ -11,7 +11,7 @@ module Hr
 
     def authenticate_admin
       return if user_signed_in? && current_user.admin
-      raise Pundit::NotAuthorizedError, 'Только особые существа могут быть здесь! Изыди, смертный!'
+      return render text: 'Только особые существа могут быть здесь! Изыди, смертный!'
     end
 
     # Override this value to specify the number of elements to display at a time
