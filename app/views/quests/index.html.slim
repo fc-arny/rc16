@@ -14,7 +14,7 @@
 
   .quests
     - if current_user.quest_count.zero?
-      .text.text--middle.text--center Попдожди минутку, мы создаем для тебя задания...
+      .text.text--middle.text--center Подожди минутку, мы создаем для тебя задания...
     - else
       - @quest_items.each do |item|
         -# рендерим див или ссылку

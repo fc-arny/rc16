@@ -1,9 +1,8 @@
 .container.container--space
   .header-stats
-    a.link(href=quests_path) ← Вернуться к списку
-
-    span.alert.alert-success
-      = flash[:quest]
+    a.link.link--icon.link--black(href=quests_path)
+      .link__icon.icons-arrow_left
+      .link__text Вернуться к списку
 
   .quest-item
     = render 'quest_content', item: @quest_item
@@ -11,16 +10,20 @@
   .card-content
     .text.text--small.text--largespace
       = sanitize(@quest_item.quest.description)
-    .text.text--small.text--largespace
-    - if @quest_item.unresolved?
-      p(style='color: red') Данный квест не был решен =(
-    - elsif @quest_item.completed?
-      p(style='color: green')= "Квест пройдет успешно! +#{@quest_item.quest.points} в копилку"
-    - elsif @quest_item.checking?
-      p(style='color: yellow')= 'Ответ проверяется'
-      = render @quest_item.quest.code, item: @quest_item
-    - else
-      - if %w(questionnaire feedback).include? @quest_item.quest.code
-        = render @quest_item.quest.code, item: @quest_item
+
+    = form_for 'quest', remote: true, method: :patch, html: { class: 'js-form' } do |form|
+      - if @quest_item.unresolved?
+        .text.text--space.text--error Данный квест не был решен =(
+      - elsif @quest_item.completed?
+        .text.text--space.text--success= "Квест пройден успешно! +#{@quest_item.quest.points} в копилку"
+      - elsif @quest_item.checking?
+        .text.text--space.text--warning= 'Ответ проверяется'
+        = render @quest_item.quest.code, item: @quest_item, form: form
       - else
-        = render 'default', item: @quest_item
+        - if %w(questionnaire feedback).include? @quest_item.quest.code
+          = render @quest_item.quest.code, item: @quest_item, form: form
+        - else
+          = render 'default', item: @quest_item, form: form
+
+      - unless @quest_item.unresolved? || @quest_item.completed?
+        button.btn.btn--default.btn--justify.btn--large(type='submit' data-disable-with='Отправляем...' method='PATCH') Отправить

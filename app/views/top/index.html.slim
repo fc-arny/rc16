@@ -6,7 +6,9 @@
       .top-video__player
         video#main_video.main-video(height='100%' width='100%' autoplay='autoplay' muted='true')
       .top-video__social
-        .icons-social_items
+        .social-items.icons-social_items
+        .title.title--superlarge Команда, с которой растешь.
+        .title.title--superlarge Проекты, которыми гордишься!
     .top-users
       .top-users__heading
         .title.title--superlarge Рейтинг Участников
@@ -17,15 +19,5 @@
             th.table-title.table-title--number.table-title--top №
             th.table-title.table-title--name.table-title--top Имя
             th.table-title.table-title--points.table-title--top Баллы
-        tbody
-          - @users.each_with_index do |user, index|
-            tr.table-line.table-line--top
-              td.table-cell
-                .text.text--top.text--center.text--strong= index + 1
-              td.table-cell
-                .table-user
-                  .table-user__photo
-                    = gravatar_image_tag(user.email, class: 'user-photo user-photo--top', alt: user.full_name)
-                  .table-user__name.text.text--top.text--strong= user.full_name
-              td.table-cell
-                .text.text--top.text--strong= user.points
+        tbody.js-users
+          = render 'users'

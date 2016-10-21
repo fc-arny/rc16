@@ -1,6 +1,4 @@
-= form_for 'quest', remote: true, method: :patch, html: { class: 'js-form' } do |f|
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :answer, placeholder: 'Ваш вариант ответа', class: 'input', value: item.data['answer']
-    .js-form-error.text.text--small.text--error
-    .input-wrapper__icon
-  button.btn.btn--default.btn--justify.btn--large(type='submit' data-disable-with='Отправляем...' method='PATCH')= item.data['answer'].present? ? 'Изменить ответ' : 'Ответить'
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = f.text_field :answer, placeholder: 'Ваш вариант ответа', class: 'input', value: item.data['answer']
+  .js-form-error.text.text--small.text--error
+  .input-wrapper__icon

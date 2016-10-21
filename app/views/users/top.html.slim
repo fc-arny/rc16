@@ -3,10 +3,10 @@
 
   table.table
     thead
-      tr.table-head-line
-        th.table-title.table-title--number Место
-        th.table-title.table-title--name Участник
-        th.table-title.table-title--points Результат
+      tr.table-head-line.table-head-line--users-top
+        th.table-title.table-title--number №
+        th.table-title.table-title--name Имя
+        th.table-title.table-title--points Баллы
     tbody
       - @users.each_with_index do |user, index|
         tr.table-line(class="#{user[:current] ? 'table-line--current' : ''}")

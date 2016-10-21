@@ -10,6 +10,9 @@
       text-align: left
     .table-title--name
       padding-left: 142px
+  &--users-top
+    .table-title--name
+      padding-left: 81px
 
 .table-title
   font-size: 12px
@@ -35,6 +38,8 @@
       background-color: $blue_bg
     .table-user__photo
       margin-right: 52px
+    .table-user__name
+      max-width: calc(100% - 142px)
 
 .table-user
   &__photo,
@@ -45,3 +50,7 @@
     margin-right: 19px
   &__name
     max-width: calc(100% - 81px)
+    +cut-text
+
+.table-cell
+  padding-right: 10px

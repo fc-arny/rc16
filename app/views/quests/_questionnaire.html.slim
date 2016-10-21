@@ -1,41 +1,30 @@
-= form_for 'quest', remote: true, method: :patch, html: { class: 'js-form' } do |f|
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :fio, placeholder: 'ФИО', class: 'input'
-    .input-wrapper__icon
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = form.text_field :age, placeholder: 'Возраст', class: 'input'
+  .input-wrapper__icon
 
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :age, placeholder: 'Возраст', class: 'input'
-    .input-wrapper__icon
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = form.text_field :phone, placeholder: 'Контактный телефон', class: 'input'
+  .input-wrapper__icon
 
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :phone, placeholder: 'Контактный телефон', class: 'input'
-    .input-wrapper__icon
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = form.text_field :project, placeholder: 'Твой самый крутой проект', class: 'input'
+  .input-wrapper__icon
 
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :email, placeholder: 'E-mail', class: 'input'
-    .input-wrapper__icon
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = form.text_field :experience, placeholder: 'Сколько лет кодишь на Ruby', class: 'input'
+  .input-wrapper__icon
 
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :project, placeholder: 'Твой самый крутой проект', class: 'input'
-    .input-wrapper__icon
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = form.text_field :social, placeholder: 'Как тебя можно найти в соцсетях', class: 'input'
+  .text.text--supersmall.text--addition.text--italic Harbahabr, Facebook, VK, LinkedIn, Мой круг
+  .input-wrapper__icon
 
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :experience, placeholder: 'Сколько лет кодишь на Ruby', class: 'input'
-    .input-wrapper__icon
+.input-wrapper.input-wrapper--largespace.input-wrapper--icon
+  = form.text_field :workplace, placeholder: 'Где сейчас работаешь (над чем)', class: 'input'
+  .input-wrapper__icon
 
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :social, placeholder: 'Как тебя можно найти в соцсетях', class: 'input'
-    .text.text--supersmall.text--addition.text--italic Harbahabr, Facebook, VK, LinkedIn, Мой круг
-    .input-wrapper__icon
-
-  .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-    = f.text_field :workplace, placeholder: 'Где сейчас работаешь (над чем)', class: 'input'
-    .input-wrapper__icon
-
-  .checkbox.checkbox--space
-    = f.check_box 'atc_work', class: 'checkbox__input'
-    = f.label 'atc_work', class: 'checkbox__label'
-      .checkbox__icon
-      .checkbox__text Я бы хотел работать в AT-Consulting
-
-  button.btn.btn--default.btn--justify.btn--large(type='submit' data-disable-with='Отправляем...' method='PATCH') Отправить
+.checkbox.checkbox--space
+  = form.check_box 'atc_work', class: 'checkbox__input'
+  = form.label 'atc_work', class: 'checkbox__label'
+    .checkbox__icon
+    .checkbox__text Я бы хотел работать в AT Consulting
