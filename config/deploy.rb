@@ -10,7 +10,6 @@ set :user, 'deploy'
 append :linked_files,
        'config/database.yml',
        'config/secrets.yml',
-       'config/settings.yml',
        'config/sidekiq.yml'
 
 append :linked_dirs,
