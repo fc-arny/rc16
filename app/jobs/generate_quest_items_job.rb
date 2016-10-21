@@ -10,7 +10,7 @@ class GenerateQuestItemsJob < ApplicationJob
 
     Quest.active.order(:priority).each_with_index do |quest, index|
       start_at = start_with + (index * Settings.quest.interval.to_i).minutes
-      QuestItem.create(quest: quest, user: user, start_at: start_at, end_at: start_at + 45.minutes)
+      QuestItem.create(quest: quest, user: user, start_at: start_at, end_at: start_at + Settings.quest.time.to_i.minutes)
     end
   end
 end
