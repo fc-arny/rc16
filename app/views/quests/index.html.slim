@@ -13,6 +13,9 @@
             .toggler__toggle
 
   .quests
+    - if DateTime.parse(Settings.quest.start_at) > Time.now
+      .text.text--middle.text--center Скоро начнем
+
     - if current_user.quest_count.zero?
       .text.text--middle.text--center Подожди минутку, мы создаем для тебя задания...
     - else
