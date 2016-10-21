@@ -8,21 +8,9 @@ GIT
       sass (>= 3.3.0, < 3.5)
 
 GIT
-  remote: https://github.com/sinatra/sinatra.git
-  revision: af6dad2a6c31e31617712b15f455b2a3d3eb1c06
-  branch: master
-  specs:
-    rack-protection (2.0.0.beta2)
-      rack
-    sinatra (2.0.0.beta2)
-      mustermann (= 1.0.0.beta2)
-      rack (~> 2.0)
-      rack-protection (= 2.0.0.beta2)
-      tilt (~> 2.0)
-
-GIT
-  remote: https://github.com/thoughtbot/administrate.git
-  revision: 73d4d558d5d1ba0fa8abc9c5849ad2f929b94711
+  remote: https://github.com/Envek/administrate.git
+  revision: aec23b959c9edf5637e5739334b549fed82bc8dc
+  branch: cherry-picks
   specs:
     administrate (0.2.2)
       autoprefixer-rails (~> 6.0)
@@ -36,6 +24,19 @@ GIT
       rails (>= 4.2, < 5.1)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
+
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: af6dad2a6c31e31617712b15f455b2a3d3eb1c06
+  branch: master
+  specs:
+    rack-protection (2.0.0.beta2)
+      rack
+    sinatra (2.0.0.beta2)
+      mustermann (= 1.0.0.beta2)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0.beta2)
+      tilt (~> 2.0)
 
 GEM
   remote: https://rubygems.org/

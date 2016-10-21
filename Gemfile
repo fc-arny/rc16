@@ -22,7 +22,7 @@ gem 'activerecord-session_store', '~> 1.0.0'
 gem 'pundit'
 
 gem 'bourbon'
-gem 'administrate', git: 'https://github.com/thoughtbot/administrate.git'
+gem 'administrate', git: 'https://github.com/Envek/administrate.git', branch: 'cherry-picks'
 
 # Utils
 gem 'config'
