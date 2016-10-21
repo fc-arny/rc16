@@ -23,6 +23,7 @@ gem 'pundit'
 
 gem 'bourbon'
 gem 'administrate', git: 'https://github.com/Envek/administrate.git', branch: 'cherry-picks'
+gem 'baby_squeel'
 
 # Utils
 gem 'config'

@@ -16,6 +16,25 @@ module Hr
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
 
+    def index
+      resources = QuestItem.all.eager_load(:user, :quest).page(params[:page])
+      resources = resources.where(state: params[:state]) if params[:state].present?
+      if params[:search].present?
+        s = "%#{params[:search].to_s.strip}%"
+        resources = resources.where.has { (user.nickname =~ s) | (user.full_name =~ s) | (quest.title =~ s) }
+      end
+      # FIXME: Всё, что дальше — это вместо +super+, т.к. нифига не догоняю, как это правильно всё переопределять
+      search_term = params[:search].to_s.strip
+      resources = order.apply(resources)
+      resources = resources.page(params[:page]).per(records_per_page)
+      page = Administrate::Page::Collection.new(dashboard, order: order)
+      render locals: {
+        resources: resources,
+        search_term: search_term,
+        page: page,
+      }
+    end
+
     def accept
       QuestItem.transaction do
         QuestItem.lock.find(params[:id]).update!(state: :completed)

@@ -33,8 +33,13 @@ It renders the `_table` partial to display details about the resources.
   <h1 class="header__heading" id="page-title"><%= content_for(:title) %></h1>
   <div class="header__actions">
     <%= link_to(
-      "New #{page.resource_name.titleize.downcase}",
-      [:new, namespace, page.resource_name],
+      "Все",
+      [namespace, QuestItem],
+      class: "button",
+    ) %>
+    <%= link_to(
+      "Ожидающие проверки",
+      [namespace, QuestItem, {state: :checking}],
       class: "button",
     ) %>
   </div>

@@ -97,6 +97,8 @@ GEM
     autoprefixer-rails (6.5.1)
       execjs
     awesome_print (1.7.0)
+    baby_squeel (0.3.0)
+      activerecord (>= 4.0.0)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -456,6 +458,7 @@ DEPENDENCIES
   activerecord-session_store (~> 1.0.0)
   administrate!
   awesome_print
+  baby_squeel
   better_errors
   binding_of_caller
   bourbon
