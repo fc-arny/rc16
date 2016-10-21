@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -24,5 +26,9 @@ Rails.application.routes.draw do
     resources :quests
     resources :quest_items
     root to: 'users#index'
+  end
+
+  authenticate :user, -> (u) { u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 end
