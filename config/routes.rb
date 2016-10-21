@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'index#main'
+  get 'top' => 'top#index'
 
   get 'users/sign_up' => redirect('/')
   get 'users/sign_in' => redirect('/')
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
   resources :quests
 
   get 'prizes' => 'prizes#index'
-  get 'top' => 'top#index'
 
   namespace :hr do
     resources :users
@@ -24,7 +25,4 @@ Rails.application.routes.draw do
     resources :quest_items
     root to: 'users#index'
   end
-
-
-  root to: 'index#main'
 end
