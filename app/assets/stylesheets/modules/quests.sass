@@ -36,8 +36,7 @@
   &__heading
     font-size: 18px
     line-height: 61px
-    .text
-      +cut-text
+    +cut-text
   &__fader
     +dark-fader(.8)
   .quest-status
@@ -93,3 +92,8 @@
   &__text
     color: $white_text
     font-weight: bold
+
+@media screen and (max-width: 500px)
+  .quest-item
+    &__heading
+      font-size: 16px
