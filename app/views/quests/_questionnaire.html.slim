@@ -1,30 +1,30 @@
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :age, placeholder: 'Возраст', class: 'input'
+  = form.text_field :age, placeholder: 'Возраст', class: 'input', value: item.data['age']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :phone, placeholder: 'Контактный телефон', class: 'input'
+  = form.text_field :phone, placeholder: 'Контактный телефон', class: 'input', value: item.data['phone']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :project, placeholder: 'Твой самый крутой проект', class: 'input'
+  = form.text_field :project, placeholder: 'Твой самый крутой проект', class: 'input', value: item.data['project']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :experience, placeholder: 'Сколько лет кодишь на Ruby', class: 'input'
+  = form.text_field :experience, placeholder: 'Сколько лет кодишь на Ruby', class: 'input', value: item.data['experience']
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :social, placeholder: 'Как тебя можно найти в соцсетях', class: 'input'
+  = form.text_field :social, placeholder: 'Как тебя можно найти в соцсетях', class: 'input', value: item.data['social']
   .text.text--supersmall.text--addition.text--italic Harbahabr, Facebook, VK, LinkedIn, Мой круг
   .input-wrapper__icon
 
 .input-wrapper.input-wrapper--largespace.input-wrapper--icon
-  = form.text_field :workplace, placeholder: 'Где сейчас работаешь (над чем)', class: 'input'
+  = form.text_field :workplace, placeholder: 'Где сейчас работаешь (над чем)', class: 'input', value: item.data['workplace']
   .input-wrapper__icon
 
 .checkbox.checkbox--space
-  = form.check_box 'atc_work', class: 'checkbox__input'
+  = form.check_box 'atc_work', class: 'checkbox__input', value: item.data['atc_work'], checked: item.data['atc_work'] == '1'
   = form.label 'atc_work', class: 'checkbox__label'
     .checkbox__icon
     .checkbox__text Я бы хотел работать в AT Consulting
