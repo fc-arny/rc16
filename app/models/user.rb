@@ -22,7 +22,9 @@ class User < ApplicationRecord
   end
 
   def position
-    User.rated.where('points >= ?', points).pluck('id').index(id) + 1
+    pos = User.rated.where('points >= ?', points).pluck('id').index(id)
+
+    pos ? pos + 1 : 'Вне конкурса'
   end
 
 
